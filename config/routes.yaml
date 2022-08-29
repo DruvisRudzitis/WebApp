@@ -1,0 +1,25 @@
+controllers:
+    resource: ../src/Controller/
+    type: attribute
+
+customer_list:
+    path: /api/v1/users
+    controller: App\Controller\UserController::index
+    methods: [GET]
+
+product_list:
+    path: /api/v1/items
+    controller: App\Controller\ItemController::index
+    methods: [ GET ]
+
+cart_show:
+    path: /api/v1/user/{id}
+    controller: App\Controller\UserShowController::show
+    methods: [ GET ]
+    requirements:
+        id: '\d+'
+
+cart_create:
+    path: /api/v1/purchase
+    controller: App\Controller\PurchaseController::purchase
+    methods: [ POST ]
